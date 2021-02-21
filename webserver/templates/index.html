@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
 
+{% macro card(title, text) %}
+<div class="card m-1" style="width: 18rem;">
+    <img src="https://picsum.photos/seed/{{ range(0, 1000) | random }}/200/300" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{ title }}</h5>
+      <p class="card-text">{{ text }}</p>
+      <a href="#" class="btn btn-primary">Claim</a>
+    </div>
+  </div>
+{% endmacro %}
+
 {% block content %}
-<div class="row">
-    <div class="card" style="width: 18rem;">
-        <img src="https://picsum.photos/seed/{{ range(0, 1000) | random }}/200/300" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
+<div class="row m-2">
+    {{ card('Bus line A', 'Expires 2PM') }}
+    {{ card('Bus line B', 'Expires 2PM') }}
+    {{ card('Bus line C', 'Expires 2PM') }}
+    {{ card('Bus line D', 'Expires 2PM') }}
+    {{ card('Bus line E', 'Expires 2PM') }}
+    {{ card('Bus line F', 'Expires 2PM') }}
+
 </div>
 {% endblock %}
